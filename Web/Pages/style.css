@@ -1,0 +1,174 @@
+/* Reset Básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #1D976C 0%, #93F9B9 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 5px solid #1D976C;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Barra de Filtros */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.filtro-item {
+    display: flex;
+    align-items: center;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.filtro-item .material-icons-outlined {
+    color: #555;
+    margin-right: 8px;
+}
+
+.filtro-item input,
+.filtro-item select {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    padding: 5px;
+    outline: none;
+}
+
+.filtro-item input {
+    min-width: 250px;
+}
+
+/* Container Principal */
+main {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Grid de Cards */
+.container-feiras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+/* Card de Feira */
+.card-feira {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-feira:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+/* Header do Card (com dia) */
+.card-header {
+    padding: 12px 20px;
+    background-color: #1D976C;
+    color: white;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* Corpo do Card (com infos) */
+.card-body {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.card-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.card-info .material-icons-outlined {
+    color: #1D976C;
+    margin-right: 12px;
+    font-size: 20px;
+}
+
+.card-info strong {
+    color: #333;
+}
+
+.card-info p {
+    color: #555;
+}
+
+/* Tag de Horário */
+.card-tag {
+    align-self: flex-start;
+    margin: 0 20px 20px 20px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.tag-manha { background-color: #f0ad4e; } /* Laranja */
+.tag-tarde { background-color: #d9534f; } /* Vermelho */
+
+/* Mensagem de Vazio */
+.mensagem-vazia {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #777;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #333;
+    color: #aaa;
+    font-size: 0.9rem;
+}

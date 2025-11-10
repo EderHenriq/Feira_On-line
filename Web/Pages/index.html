@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feiras de Maringá</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1>Feira-Online</h1>
+            <p>Seu guia de feiras livres em Maringá</p>
+        </div>
+    </header>
+
+    <nav class="filtros">
+        <div class="filtro-item">
+            <span class="material-icons-outlined">search</span>
+            <input type="text" id="filtro-bairro" placeholder="Pesquise por bairro ou local...">
+        </div>
+        <div class="filtro-item">
+            <span class="material-icons-outlined">calendar_today</span>
+            <select id="filtro-dia">
+                <option value="">Todos os dias</option>
+                <option value="Domingo">Domingo</option>
+                <option value="Segunda-feira">Segunda-feira</option>
+                <option value="Terça-feira">Terça-feira</option>
+                <option value="Quarta-feira">Quarta-feira</option>
+                <option value="Quinta-feira">Quinta-feira</option>
+                <option value="Sexta-feira">Sexta-feira</option>
+                <option value="Sábado">Sábado</option>
+            </select>
+        </div>
+    </nav>
+
+    <main>
+        <div id="lista-feiras" class="container-feiras">
+            </div>
+        <div id="mensagem-vazia" class="mensagem-vazia" style="display: none;">
+            <p>Nenhuma feira encontrada com esses filtros.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Projeto Feira-Online - Desenvolvido com Spring Boot & JS</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

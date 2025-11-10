@@ -1,18 +1,9 @@
 package com.Feira_On_Line.Feira.Model;
 
 import jakarta.persistence.*;
-import lombok.*;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
-@Entity
-@Table(name = "feiras")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Entity // Marca esta classe como uma tabela no banco
+@Table(name = "feiras") // Nome da tabela
 public class Feira {
 
     @Id
@@ -20,52 +11,88 @@ public class Feira {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
-
-    @Column(columnDefinition = "TEXT")
-    private String description;
+    private String nome; // Ex: "Feira da Vila Operária"
 
     @Column(nullable = false)
-    private String location;
+    private String diaDaSemana; // Ex: "Domingo"
 
-    @Column
-    private String neighborhood;
+    @Column(nullable = false)
+    private String horarioInicio; // Ex: "08:00"
 
-    @Column(precision = 10, scale = 8)
-    private Double latitude;
+    @Column(nullable = false)
+    private String horarioFim; // Ex: "12:00"
 
-    @Column(precision = 11, scale = 8)
-    private Double longitude;
+    @Column(nullable = false)
+    private String localizacao; // Ex: "Praça da Igreja"
 
-    @Column
-    private String schedule;
+    private String endereco; // Ex: "Av. Brasil, 1234"
 
-    @Column
-    private LocalTime openingTime;
+    private String bairro; // Ex: "Zona 03"
 
-    @Column
-    private LocalTime closingTime;
+    // Getters e Setters (O Spring precisa deles)
+    // <...> (Você pode gerar via IDE ou adicionar manualmente)
 
-    @Column(columnDefinition = "JSON")
-    private String amenities;
-
-    @ManyToMany(mappedBy = "fairs")
-    private List<com.Feira_On_Line.Feira.Model.Feira> feiras = new ArrayList<>();
-
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
-    @Column
-    private LocalDateTime updatedAt;
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
+    public Long getId() {
+        return id;
     }
 
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDiaDaSemana() {
+        return diaDaSemana;
+    }
+
+    public void setDiaDaSemana(String diaDaSemana) {
+        this.diaDaSemana = diaDaSemana;
+    }
+
+    public String getHorarioInicio() {
+        return horarioInicio;
+    }
+
+    public void setHorarioInicio(String horarioInicio) {
+        this.horarioInicio = horarioInicio;
+    }
+
+    public String getHorarioFim() {
+        return horarioFim;
+    }
+
+    public void setHorarioFim(String horarioFim) {
+        this.horarioFim = horarioFim;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 }

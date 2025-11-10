@@ -1,0 +1,46 @@
+-- Insere todas as feiras de Maringá
+INSERT INTO feiras (nome, dia_da_semana, horario_inicio, horario_fim, localizacao, endereco, bairro) 
+VALUES
+-- DOMINGO
+('Feira do Centro', 'Domingo', '07:00', '12:00', 'Avenida Mauá', 'Avenida Mauá', 'Centro'),
+('Feira do Fim da Picada', 'Domingo', '07:00', '11:30', 'Rua Carlos Chagas', 'Rua Carlos Chagas', 'Zona 06'),
+('Feira do Cj. Cidade Alta', 'Domingo', '07:00', '11:30', 'Rua Noel Rosa', 'Rua Noel Rosa', 'Cidade Alta'),
+('Feira do Cj. Borba Gato', 'Domingo', '07:00', '11:30', 'Rua das Azaléias', 'Rua das Azaléias', 'Borba Gato'),
+
+-- SEGUNDA-FEIRA
+('Feira do Jd. Alvorada', 'Segunda-feira', '07:00', '11:00', 'Rua Maranhão', 'Rua Maranhão', 'Jardim Alvorada'),
+('Feira Pôr-do-Sol (V. Operária)', 'Segunda-feira', '17:00', '21:00', 'Praça Emiliano Perneta', 'Praça Emiliano Perneta', 'Vila Operária'),
+('Feira Verde (Iguatemi)', 'Segunda-feira', '17:00', '21:00', 'Praça da Igreja', 'Praça da Igreja', 'Iguatemi'),
+('Feira Pôr-do-Sol (Jd. Aeroporto)', 'Segunda-feira', '17:00', '21:00', 'Praça Salgado Filho', 'Praça Salgado Filho', 'Jardim Aeroporto'),
+
+-- TERÇA-FEIRA
+('Feira da Zona 07', 'Terça-feira', '07:00', '11:00', 'Rua José Clemente', 'Rua José Clemente', 'Zona 07'),
+('Feira da Zona 04', 'Terça-feira', '07:00', '11:30', 'Avenida Humaitá', 'Avenida Humaitá', 'Zona 04'),
+('Feira da Vila Santa Isabel', 'Terça-feira', '07:00', '11:00', 'Rua Jarbas Rodrigues Alves', 'Rua Jarbas Rodrigues Alves', 'Vila Santa Isabel'),
+('Feira Noturna (Teatro Reviver)', 'Terça-feira', '17:00', '21:00', 'Praça de Todos os Santos', 'Praça de Todos os Santos', 'Zona 02'),
+('Feira Pôr-do-Sol (Herman M. Barros)', 'Terça-feira', '17:00', '21:00', 'Avenida São Judas Tadeu', 'Avenida São Judas Tadeu', 'Herman Moraes Barros'),
+
+-- QUARTA-FEIRA
+('Feira da Vila Morangueira', 'Quarta-feira', '07:00', '11:00', 'Rua Bogotá', 'Rua Bogotá', 'Vila Morangueira'),
+('Feira do Jd. Liberdade', 'Quarta-feira', '07:00', '11:00', 'Rua Francisco Bulla', 'Rua Francisco Bulla', 'Jardim Liberdade'),
+('Feira do Produtor (Estádio)', 'Quarta-feira', '17:00', '22:00', 'Av. Prudente de Moraes', 'Av. Prudente de Moraes (Estádio)', 'Zona 07'),
+('Feira Pôr-do-Sol (Cj. Sanenge)', 'Quarta-feira', '17:00', '21:00', 'Rua Araras', 'Rua Araras', 'Conjunto Sanenge'),
+('Feira Pôr-do-Sol (Jd. Liberdade)', 'Quarta-feira', '17:00', '21:00', 'Avenida Osires Guimarães', 'Avenida Osires Guimarães', 'Jardim Liberdade'),
+
+-- QUINTA-FEIRA
+('Feira da Vila Santo Antônio', 'Quinta-feira', '07:00', '11:00', 'Rua Marechal Cândido Rondon', 'Rua Marechal Cândido Rondon', 'Vila Santo Antônio'),
+('Feira da Vila Operária', 'Quinta-feira', '07:00', '11:00', 'Praça Emiliano Perneta', 'Praça Emiliano Perneta', 'Vila Operária'),
+('Feira do Jd. Alvorada', 'Quinta-feira', '07:00', '11:00', 'Rua Uruguai', 'Rua Uruguai', 'Jardim Alvorada'),
+('Feira Pôr-do-Sol (Jd. Real)', 'Quinta-feira', '17:00', '21:00', 'Rua Alício Campolino', 'Rua Alício Campolino', 'Jardim Real'),
+('Feira Pôr-do-Sol (Zona 07)', 'Quinta-feira', '17:00', '21:00', 'Rua Evaristo da Veiga c/ Floriano Peixoto', 'Rua Evaristo da Veiga', 'Zona 07'),
+
+-- SEXTA-FEIRA
+('Feira da Zona 05', 'Sexta-feira', '07:00', '11:00', 'Rua Nassib Haddad', 'Rua Nassib Haddad', 'Zona 05'),
+('Feira da Vila Operária', 'Sexta-feira', '07:00', '11:00', 'Avenida Riachuelo', 'Avenida Riachuelo', 'Vila Operária'),
+('Feira Pôr-do-Sol (Jd. Oásis)', 'Sexta-feira', '17:00', '21:00', 'Avenida Tuiuti c/ Rua Rio Gandu', 'Avenida Tuiuti', 'Jardim Oásis'),
+
+-- SÁBADO
+('Feira da Zona 02', 'Sábado', '07:00', '12:00', 'Avenida Vereador Primo Monteschio', 'Avenida Vereador Primo Monteschio', 'Zona 02'),
+('Feira da Zona 07', 'Sábado', '07:00', '11:30', 'Rua Mandaguari', 'Rua Mandaguari', 'Zona 07'),
+('Feira do Pq. Itaipu', 'Sábado', '07:00', '11:30', 'Avenida Maurício Mariani', 'Avenida Maurício Mariani', 'Parque Itaipu'),
+('Feira do Produtor (Estádio)', 'Sábado', '06:00', '11:00', 'Av. Prudente de Moraes', 'Av. Prudente de Moraes (Estádio)', 'Zona 07');
