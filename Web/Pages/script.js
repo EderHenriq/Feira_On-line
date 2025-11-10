@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 1. Busca os dados da API
+    // Busca os dados da API
     async function buscarFeirasDaAPI() {
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return await response.json();
     }
 
-    // 2. Aplica os filtros com base no que o usuário digitou/selecionou
+    // Aplica os filtros com base no que o usuário digitou/selecionou
     function aplicarFiltros() {
         const termoBairro = filtroBairroInput.value.toLowerCase();
         const diaSelecionado = filtroDiaSelect.value;
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         renderizarFeiras(feirasFiltradas);
     }
 
-    // 3. Renderiza (desenha) os cards na tela
+    // Renderiza os cards na tela
     function renderizarFeiras(feiras) {
         // Limpa a lista antiga
         listaFeirasContainer.innerHTML = "";
