@@ -1,6 +1,6 @@
 package com.Feira_On_Line.Feira.Model;
 
-enum Eusuario{
+public enum TipoUsuario {
     VISITANTE,
     FEIRANTE
 }

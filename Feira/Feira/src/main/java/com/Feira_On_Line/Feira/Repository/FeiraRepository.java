@@ -1,4 +1,3 @@
-// FairRepository.java
 package com.Feira_On_Line.Feira.Repository;
 
 import com.Feira_On_Line.Feira.Model.Feira;
@@ -8,6 +7,7 @@ import java.util.List;
 
 @Repository
 public interface FeiraRepository extends JpaRepository<Feira, Long> {
-    List<Feira> findByNeighborhood(String neighborhood);
-    List<Feira> findByNameContainingIgnoreCase(String name);
+    List<Feira> findByBairro(String bairro);
+    List<Feira> findByNomeContainingIgnoreCase(String nome);
+    List<Feira> findByHorarioContainingIgnoreCase(String horario);
 }

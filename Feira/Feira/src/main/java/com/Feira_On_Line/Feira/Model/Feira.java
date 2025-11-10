@@ -20,16 +20,16 @@ public class Feira {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String nome;
 
     @Column(columnDefinition = "TEXT")
-    private String description;
+    private String descricao;
 
     @Column(nullable = false)
-    private String location;
+    private String localizacao;
 
     @Column
-    private String neighborhood;
+    private String bairro;
 
     @Column(precision = 10, scale = 8)
     private Double latitude;
@@ -38,34 +38,34 @@ public class Feira {
     private Double longitude;
 
     @Column
-    private String schedule;
+    private String horario;
 
     @Column
-    private LocalTime openingTime;
+    private LocalTime horaAbertura;
 
     @Column
-    private LocalTime closingTime;
+    private LocalTime horaFechamento;
 
     @Column(columnDefinition = "JSON")
-    private String amenities;
+    private String comodidades;
 
-    @ManyToMany(mappedBy = "fairs")
-    private List<com.Feira_On_Line.Feira.Model.Feira> feiras = new ArrayList<>();
+    @ManyToMany(mappedBy = "feiras")
+    private List<Feirante> feirantes = new ArrayList<>();
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime criadoEm;
 
     @Column
-    private LocalDateTime updatedAt;
+    private LocalDateTime atualizadoEm;
 
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
+        criadoEm = LocalDateTime.now();
+        atualizadoEm = LocalDateTime.now();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+        atualizadoEm = LocalDateTime.now();
     }
 }

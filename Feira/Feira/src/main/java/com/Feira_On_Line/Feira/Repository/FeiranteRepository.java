@@ -7,6 +7,6 @@ import java.util.Optional;
 
 @Repository
 public interface FeiranteRepository extends JpaRepository<Feirante, Long> {
-
     Optional<Feirante> findByUsuarioId(Long usuarioId);
+    Optional<Feirante> findByNomeBarracaContainingIgnoreCase(String nomeBarraca);
 }

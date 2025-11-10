@@ -1,4 +1,3 @@
-// User.java
 package com.Feira_On_Line.Feira.Model;
 
 import jakarta.persistence.*;
@@ -11,12 +10,11 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "usuarios")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class Usuario implements UserDetails {
 
     @Id
@@ -30,42 +28,48 @@ public class Usuario implements UserDetails {
     private String email;
 
     @Column(nullable = false)
-    private String password;
+    private String senha;
 
-    @Column
+    @Column(length = 20)
     private String telefone;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private UsuarioType usuarioType;
+    private TipoUsuario tipoUsuario;
 
     @Column(columnDefinition = "boolean default true")
-    private Boolean active;
+    private Boolean ativo;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime criadoEm;
 
     @Column
-    private LocalDateTime updatedAt;
+    private LocalDateTime atualizadoEm;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Feirante feirante;
 
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-        if (active == null) active = true;
+        criadoEm = LocalDateTime.now();
+        atualizadoEm = LocalDateTime.now();
+        if (ativo == null) ativo = true;
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+        atualizadoEm = LocalDateTime.now();
+    }
+
+    // Implementação UserDetails para Spring Security
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_" + tipoUsuario.name()));
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + UsuarioType.name()));
+    public String getPassword() {
+        return senha;
     }
 
     @Override
@@ -90,6 +94,6 @@ public class Usuario implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return active;
+        return ativo;
     }
 }

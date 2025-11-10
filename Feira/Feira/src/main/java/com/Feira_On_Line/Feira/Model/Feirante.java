@@ -1,22 +1,20 @@
+// ============================================
+// ENTIDADE: Feirante.java
+// ============================================
 package com.Feira_On_Line.Feira.Model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.*;
 
 @Entity
-@Table(name = "Feirante")
+@Table(name = "feirantes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class Feirante {
 
     @Id
@@ -24,51 +22,51 @@ public class Feirante {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = false, unique = true)
-    private com.Feira_On_Line.Feira.Model.Usuario usuario;
+    @JoinColumn(name = "usuario_id", nullable = false, unique = true)
+    private Usuario usuario;
 
     @Column(nullable = false)
-    private String barracaName;
+    private String nomeBarraca;
 
     @Column(columnDefinition = "TEXT")
-    private String description;
+    private String descricao;
 
     @Column
     private String logoUrl;
 
     @Column(precision = 3, scale = 1)
-    private Double rating;
+    private Double avaliacao;
 
     @Column
-    private Integer totalReviews;
+    private Integer totalAvaliacoes;
 
-    @OneToMany(mappedBy = "vendor", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<com.Feira_On_Line.Feira.Model.Produto> produto = new ArrayList<>();
+    @OneToMany(mappedBy = "feirante", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Produto> produtos = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
-            name = "Feriante_feira",
-            joinColumns = @JoinColumn(name = "Feirante_id"),
-            inverseJoinColumns = @JoinColumn(name = "Feira_id")
+            name = "feirante_feiras",
+            joinColumns = @JoinColumn(name = "feirante_id"),
+            inverseJoinColumns = @JoinColumn(name = "feira_id")
     )
-    private List<com.Feira_On_Line.Feira.Model.Feira> feira = new ArrayList<>();
+    private List<Feira> feiras = new ArrayList<>();
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime criadoEm;
 
     @Column
-    private LocalDateTime updatedAt;
+    private LocalDateTime atualizadoEm;
 
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-        if (rating == null) rating = 0.0;
-        if (totalReviews == null) totalReviews = 0;
+        criadoEm = LocalDateTime.now();
+        atualizadoEm = LocalDateTime.now();
+        if (avaliacao == null) avaliacao = 0.0;
+        if (totalAvaliacoes == null) totalAvaliacoes = 0;
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+        atualizadoEm = LocalDateTime.now();
     }
 }

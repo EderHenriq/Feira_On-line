@@ -1,11 +1,475 @@
+ml
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Feira On-line - Home</title>
+    <style>
+        /* ===== RESET E BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            color: #212121;
+            background-color: #FFFFFF;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #212121;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E0E0E0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4CAF50;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        .nav-desktop a {
+            color: #757575;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-desktop a:hover {
+            color: #4CAF50;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #FFFFFF;
+            color: #212121;
+            border: 2px solid #E0E0E0;
+        }
+
+        .btn-secondary:hover {
+            border-color: #4CAF50;
+            color: #4CAF50;
+        }
+
+        /* ===== MAIN ===== */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #E8F5E9 0%, #FFFFFF 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #212121;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #757575;
+            margin-bottom: 2.5rem;
+        }
+
+        .search-container {
+            display: flex;
+            max-width: 600px;
+            margin: 2rem auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #FFFFFF;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 1.2rem;
+            border: none;
+            font-size: 1.1rem;
+            color: #212121;
+        }
+
+        .search-input::placeholder {
+            color: #BDBDBD;
+        }
+
+        .btn-search {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            padding: 1.2rem 2rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .btn-search:hover {
+            background-color: #45a049;
+        }
+
+        .quick-filters {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .filter-btn {
+            background-color: #FFFFFF;
+            border: 2px solid #4CAF50;
+            color: #4CAF50;
+            padding: 0.75rem 1.8rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+        }
+
+        /* ===== CONTENT CARDS ===== */
+        .content-section {
+            padding: 3rem 0;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .content-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 2px solid #E0E0E0;
+            transition: all 0.4s;
+            text-align: center;
+        }
+
+        .content-card:hover {
+            border-color: #4CAF50;
+            box-shadow: 0 16px 32px rgba(76, 175, 80, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .content-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-card p {
+            color: #757575;
+            margin-bottom: 2rem;
+        }
+
+        .content-card .btn {
+            width: 100%;
+        }
+
+        /* ===== FAIRS SECTION ===== */
+        .fairs-section {
+            padding: 3rem 0;
+        }
+
+        .fairs-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #212121;
+        }
+
+        .fairs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .fair-card {
+            background: #FFFFFF;
+            border: 2px solid #E0E0E0;
+            border-radius: 14px;
+            padding: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            color: #212121;
+        }
+
+        .fair-card:hover {
+            border-color: #4CAF50;
+            box-shadow: 0 12px 24px rgba(76, 175, 80, 0.15);
+            transform: translateY(-6px);
+        }
+
+        .fair-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .fair-card p {
+            color: #757575;
+            font-size: 0.95rem;
+            margin: 0.7rem 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #212121;
+            color: #FFFFFF;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            width: 100%;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: #FFFFFF;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #4CAF50;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .search-container {
+                flex-direction: column;
+            }
+
+            .btn-search {
+                width: 100%;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+
+            .fairs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <span class="logo-icon">🏪</span>
+                <span>Feira On-line</span>
+            </a>
+            
+            <nav class="nav-desktop">
+                <a href="#">Home</a>
+                <a href="#">Feiras</a>
+                <a href="#">Mapa</a>
+                <a href="#">Vendedores</a>
+                <a href="#">Produtos</a>
+            </nav>
+
+            <div class="header-buttons">
+                <button class="btn btn-secondary">Entrar</button>
+                <button class="btn btn-primary">Registrar</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Procure pela feira mais próxima</h1>
+            <p>Encontre produtos frescos de pequenos produtores perto de você</p>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Procure por produtos frescos..." class="search-input">
+                <button class="btn-search">🔍</button>
+            </div>
+            
+            <div class="quick-filters">
+                <button class="filter-btn">Hoje</button>
+                <button class="filter-btn">Fim de Semana</button>
+                <button class="filter-btn">Próximas Semanas</button>
+                <button class="filter-btn">Meu Bairro</button>
+            </div>
+        </section>
+
+        <!-- Content Cards -->
+        <section class="content-section">
+            <div class="card-container">
+                <div class="content-card">
+                    <h2>👨‍🌾 Feirantes</h2>
+                    <p>Conheça os produtores locais e suas histórias</p>
+                    <button class="btn btn-primary">Ver Feirantes</button>
+                </div>
+
+                <div class="content-card">
+                    <h2>🥬 Colheitas do Mês</h2>
+                    <p>Aproveite das melhores colheitas da estação</p>
+                    <button class="btn btn-primary">Ver Produtos</button>
+                </div>
+
+                <div class="content-card">
+                    <h2>📅 Próximas Feiras</h2>
+                    <p>Confira as feiras acontecendo perto de você</p>
+                    <button class="btn btn-primary">Ver Todas</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Fairs -->
+        <section class="fairs-section">
+            <h2>Feiras Destacadas</h2>
+            <div class="fairs-grid">
+                <a href="#" class="fair-card">
+                    <h3>Feira da Avenida Brasil</h3>
+                    <p>📍 Centro</p>
+                    <p>📅 Terças e quintas</p>
+                    <p>⏰ 14h - 18h</p>
+                    <p>👥 12 feirantes • ⭐ 4.7</p>
+                </a>
+
+                <a href="#" class="fair-card">
+                    <h3>Feira do Parque da Lagoa</h3>
+                    <p>📍 Zona 7</p>
+                    <p>📅 Sábados</p>
+                    <p>⏰ 7h - 12h</p>
+                    <p>👥 8 feirantes • ⭐ 4.9</p>
+                </a>
+
+                <a href="#" class="fair-card">
+                    <h3>Feira do Bairro Novo</h3>
+                    <p>📍 Bairro Novo</p>
+                    <p>📅 Quartas e sábados</p>
+                    <p>⏰ 16h - 20h</p>
+                    <p>👥 6 feirantes • ⭐ 4.5</p>
+                </a>
+
+                <a href="#" class="fair-card">
+                    <h3>Feira Vila Esperança</h3>
+                    <p>📍 Vila Esperança</p>
+                    <p>📅 Domingos</p>
+                    <p>⏰ 8h - 13h</p>
+                    <p>👥 10 feirantes • ⭐ 4.6</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <p>&copy; 2025 Feira On-line - Feiras Livres de Maringá</p>
+            <div class="footer-links">
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Termos</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

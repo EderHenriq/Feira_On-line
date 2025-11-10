@@ -1,17 +1,10 @@
 package com.Feira_On_Line.Feira.DTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class ProdutoDTO {
-    private Long id;
+public class CriarProdutoRequest {
     private String nome;
     private String descricao;
     private String categoria;
@@ -21,8 +14,4 @@ public class ProdutoDTO {
     private String imagemUrl;
     private Boolean organico;
     private Boolean local;
-    private Double avaliacao;
-    private Integer visualizacoes;
-    private Long feiranteId;
-    private String nomeFeirante;
 }

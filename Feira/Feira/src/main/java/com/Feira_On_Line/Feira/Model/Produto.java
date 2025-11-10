@@ -6,13 +6,11 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Produtos")
+@Table(name = "produtos")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-
 public class Produto {
 
     @Id
@@ -21,61 +19,60 @@ public class Produto {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "feirante_id", nullable = false)
-
-    private com.Feira_On_Line.Feira.Model.Feirante feirante;
+    private Feirante feirante;
 
     @Column(nullable = false)
-    private String name;
+    private String nome;
 
     @Column(columnDefinition = "TEXT")
-    private String description;
+    private String descricao;
 
     @Column
-    private String category;
+    private String categoria;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal price;
+    private BigDecimal preco;
 
     @Column
-    private String unit;
+    private String unidade;
 
     @Column
-    private Integer stock;
+    private Integer estoque;
 
     @Column
-    private String imageUrl;
+    private String imagemUrl;
 
     @Column
-    private Boolean organic;
+    private Boolean organico;
 
     @Column
     private Boolean local;
 
     @Column(precision = 3, scale = 1)
-    private Double rating;
+    private Double avaliacao;
 
     @Column
-    private Integer views;
+    private Integer visualizacoes;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime criadoEm;
 
     @Column
-    private LocalDateTime updatedAt;
+    private LocalDateTime atualizadoEm;
 
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-        if (organic == null) organic = false;
+        criadoEm = LocalDateTime.now();
+        atualizadoEm = LocalDateTime.now();
+        if (organico == null) organico = false;
         if (local == null) local = false;
-        if (rating == null) rating = 0.0;
-        if (views == null) views = 0;
-        if (stock == null) stock = 0;
+        if (avaliacao == null) avaliacao = 0.0;
+        if (visualizacoes == null) visualizacoes = 0;
+        if (estoque == null) estoque = 0;
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+        atualizadoEm = LocalDateTime.now();
     }
 }

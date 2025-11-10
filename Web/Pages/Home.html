@@ -1,11 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Feira On-line - Home</title>
+    <link rel="stylesheet" href="../Pages/css/global.css">
+    <link rel="stylesheet" href="../Pages/css/home.css">
 </head>
 <body>
-    
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="home.html" class="logo">
+                <span class="logo-icon">🏪</span>
+                <span class="logo-text">Feira On-line</span>
+            </a>
+            
+            <nav class="nav-desktop">
+                <a href="home.html">Home</a>
+                <a href="fair-details.html">Feiras</a>
+                <a href="mapa.html">Mapa</a>
+                <a href="#">Vendedores</a>
+                <a href="#">Produtos</a>
+            </nav>
+
+            <div class="header-buttons">
+                <a href="user-profile.html" class="btn btn-secondary">Entrar</a>
+                <a href="vendor-dashboard.html" class="btn btn-primary">Registrar</a>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Procure pela feira mais próxima</h1>
+                <p>Encontre produtos frescos de pequenos produtores perto de você</p>
+                
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Procure por produtos frescos..." class="search-input">
+                    <button class="btn-search" onclick="handleSearch()">🔍</button>
+                </div>
+                
+                <div class="quick-filters">
+                    <button class="filter-btn" onclick="filterFairs('today')">Hoje</button>
+                    <button class="filter-btn" onclick="filterFairs('weekend')">Fim de Semana</button>
+                    <button class="filter-btn" onclick="filterFairs('week')">Próximas Semanas</button>
+                    <button class="filter-btn" onclick="filterFairs('neighborhood')">Meu Bairro</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <section class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab(event, 'home-tab')">Home</button>
+            <button class="tab-btn" onclick="switchTab(event, 'vendors-tab')">Vendedores</button>
+            <button class="tab-btn" onclick="switchTab(event, 'products-tab')">Produtos</button>
+            <button class="tab-btn" onclick="switchTab(event, 'events-tab')">Eventos</button>
+            <button class="tab-btn" onclick="switchTab(event, 'about-tab')">Sobre</button>
+        </section>
+
+        <!-- Content Cards Section -->
+        <section class="content-section">
+            <div class="card-container">
+                <div class="content-card feirantes-card">
+                    <h2>👨‍🌾 Feirantes</h2>
+                    <p>Conheça os produtores locais e suas histórias de sucesso</p>
+                    <a href="fair-details.html" class="btn btn-primary">Ver Feirantes</a>
+                </div>
+
+                <div class="content-card colheitas-card">
+                    <h2>🥬 Colheitas do Mês</h2>
+                    <p>Aproveite das melhores colheitas da estação</p>
+                    <a href="fair-details.html" class="btn btn-primary">Ver Produtos</a>
+                </div>
+
+                <div class="content-card proximas-card">
+                    <h2>📅 Próximas Feiras</h2>
+                    <p>Confira as feiras acontecendo perto de você</p>
+                    <a href="fair-details.html" class="btn btn-primary">Ver Todas</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Fairs Section -->
+        <section class="fairs-section">
+            <h2>Feiras Destacadas</h2>
+            <div class="fairs-grid" id="fairsList"></div>
+        </section>
+
+        <!-- Upcoming Events Section -->
+        <section class="upcoming-section">
+            <h2>Próximas Feiras</h2>
+            <div class="upcoming-grid" id="upcomingList"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Feira On-line - Feiras Livres de Maringá</p>
+            <div class="footer-links">
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Termos</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../Pages/js/home.js"></script>
 </body>
 </html>

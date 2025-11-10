@@ -1,4 +1,3 @@
-// FeiraDTO.java
 package com.Feira_On_Line.Feira.DTO;
 
 import lombok.AllArgsConstructor;
@@ -13,14 +12,15 @@ import java.time.LocalTime;
 @Builder
 public class FeiraDTO {
     private Long id;
-    private String name;
-    private String description;
-    private String location;
-    private String neighborhood;
+    private String nome;
+    private String descricao;
+    private String localizacao;
+    private String bairro;
     private Double latitude;
     private Double longitude;
-    private String schedule;
-    private LocalTime openingTime;
-    private LocalTime closingTime;
-    private String amenities;
+    private String horario;
+    private LocalTime horaAbertura;
+    private LocalTime horaFechamento;
+    private String comodidades;
+    private Integer totalFeirantes;
 }
